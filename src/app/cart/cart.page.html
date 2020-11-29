@@ -12,7 +12,7 @@
 <ion-content>
     <ion-list>
         <ion-list-header>
-            <ion-label>Productos</ion-label>
+            <ion-label><strong>Productos</strong> </ion-label>
         </ion-list-header>
 
         <ion-item-group *ngIf="cart">
@@ -21,9 +21,15 @@
 
             </ion-item-divider>
 
-            <ion-item lines="none" *ngFor="let item of cart.products; index as i">
-                <ion-label>{{ item.name }}</ion-label>
-                <ion-badge color="primary">{{ item.price | currency}}</ion-badge>
+            <ion-item lines="none" *ngFor="let item of CanYProd; index as i; ">
+                <ion-chip>
+                    <ion-label>{{item.c}}</ion-label>
+                </ion-chip>
+                <ion-label>{{ item.p.name }}</ion-label>
+                <ion-badge color="secondary">{{ item.p.price | currency}}</ion-badge>
+                <ion-button size="small" color="danger" (click)="showAlert(i)">
+                    <ion-icon name="trash" color="light"></ion-icon>
+                </ion-button>
             </ion-item>
 
             <ion-item-divider>
@@ -40,7 +46,7 @@
             </ion-item>
             <ion-item lines="none">
                 <ion-label>Total</ion-label>
-                <ion-badge color="primary">{{ cart.total | currency}}</ion-badge>
+                <ion-badge color="warning">{{ cart.total | currency}}</ion-badge>
             </ion-item>
 
         </ion-item-group>

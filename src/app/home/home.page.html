@@ -14,24 +14,26 @@
         <ion-slide *ngFor="let product of products; index as i">
             <ion-card>
                 <img src='{{ product.photo }}'>
+
                 <ion-card-header>
                     <ion-card-title>{{ product.name }}</ion-card-title>
                     <ion-card-subtitle>{{ product.description }}</ion-card-subtitle>
                 </ion-card-header>
+
                 <ion-card-content>
                     <div>
                         <div>
-                            <ion-chip color="primary">
+                            <ion-chip color="success">
                                 <ion-label>{{ product.price | currency}}</ion-label>
                             </ion-chip>
                         </div>
                     </div>
                     <ion-fab vertical="top" horizontal="end" slot="fixed">
                         <ion-fab-button>
-                            <ion-icon name="add"></ion-icon>
+                            <ion-icon name="pricetags-outline"></ion-icon>
                         </ion-fab-button>
                         <ion-fab-list side="top">
-                            <ion-fab-button color="secondary" (click)="addToCart(product)">
+                            <ion-fab-button color="primary" (click)="showAlert(product)">
                                 <ion-icon name="cart"></ion-icon>
                             </ion-fab-button>
                         </ion-fab-list>
